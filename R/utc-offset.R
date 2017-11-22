@@ -1,17 +1,20 @@
-#' @title UTC Offset
+#' UTC Offset
 #'
-#' @description
 #' Calculates the offsets in hours between the time zones
-#' of a date time object and the Coordinated Universal Time time zone.
+#' of a POSIXct object and the coordinated Universal Time time zone.
 #'
-#' @param x a date-time object
-#' @return The offsets as an numeric vector.
-#' @seealso \code{\link{standardise_datetime}}
-#' @importFrom lubridate hour force_tz as.period
+#' @param x A POSIXct object.
+#' @return The offsets as a numeric vector.
 #' @export
-utc_offset <- function(x) {
-  difftime <- force_tz(x, "UTC") - x
-  period <- suppressMessages(as.period(difftime))
-  hour <- hour(period)
-  return(hour)
+#' @examples
+#' times <- c("2001-06-01 00:00:00", "2001-01-01 00:00:00")
+#' times <- as.POSIXct(times, tz = "PST8PDT")
+#' times
+#' ps_utc_offset(times)
+ps_utc_offset <- function(x) {
+  check_vector(x, c(Sys.time(), NA), min_length = 1)
+  x %<>%
+    difftime(force_tz(., "UTC"), ., units = "hours") %>%
+    as.numeric()
+  x
 }

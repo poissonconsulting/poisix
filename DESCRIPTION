@@ -1,14 +1,20 @@
 Package: poisix
-Title: What the Package Does (one line, title case)
+Title: Manipulate Datetimes
 Version: 0.0.0.9000
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Functions to manipulate Dates and POSIXct objects.
 Depends:
-    R (>= 3.3.2),
-    lubridate
+    R (>= 3.3.2)
 Imports:
-    assertthat
+    vectorcheckr,
+    lubridate,
+    magrittr,
+    tidyselect
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
+Suggests: 
+    covr,
+    testthat
+Remotes: poissonconsulting/vectorcheckr
