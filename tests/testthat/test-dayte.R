@@ -12,6 +12,8 @@ test_that("doy", {
 test_that("doy2date", {
   expect_identical(doy2date(1:2, 2000), as.Date(c("2000-01-01", "2000-01-02")))
   expect_identical(doy2date(1:2, 2002:2001), as.Date(c("2002-01-01", "2001-01-02")))
+  expect_error(doy2date(1:2, "2000"), "year must be class integer OR year must be class numeric")
+  expect_error(doy2date(1:2, factor("2000")), "year must be class integer OR year must be class numeric")
 })
 
 test_that("dayte", {

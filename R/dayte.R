@@ -27,7 +27,7 @@ doy <- function(x){
 #' doy2date(1:2, 2002:2001)
 doy2date <- function(x, year){
   checkor(check_vector(x, c(1L, 366L, NA)), check_vector(x, c(1, 366, NA)))
-  checkor(check_vector(x, 1L), check_vector(1))
+  checkor(check_vector(year, 1L), check_vector(year, 1))
   checkor(check_length(year, 1), check_length(year, length(x)))
 
   if(!length(x)) return(as.Date(character(0)))
