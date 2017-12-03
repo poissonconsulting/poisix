@@ -1,3 +1,3 @@
-#' @import vectorcheckr lubridate
+#' @import checkr lubridate
 #' @importFrom magrittr %<>% %>%
 NULL

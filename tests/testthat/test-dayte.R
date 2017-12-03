@@ -1,0 +1,21 @@
+context("dayte")
+
+test_that("doy", {
+  expect_identical(doy(as.Date("2002-01-11")), 11L)
+  expect_identical(doy(as.Date("2001-05-16")), 136L)
+  expect_identical(doy(as.Date("2001-12-31")), 365L)
+  expect_identical(doy(as.Date("2004-12-31")), 366L)
+
+  expect_identical(doy(as.Date(c("2004-12-31", "2001-12-31", NA))), c(366L, 365L, NA))
+})
+
+test_that("dayte", {
+  expect_identical(dayte(as.Date("2001-05-16")), as.Date("1972-05-16"))
+  expect_identical(dayte(as.Date("2004-02-29")), as.Date("1972-02-29"))
+  expect_identical(dayte(as.Date(c("2004-02-29", NA, "2001-05-16"))), as.Date(c("1972-02-29", NA, "1972-05-16")))
+})
+
+test_that("dayte_time", {
+  expect_identical(dayte_time(as.POSIXct("2001-05-16 02:03:04")),
+                   as.POSIXct("1972-05-16 02:03:04"))
+})

@@ -19,7 +19,7 @@ ps_separate_date <- function(data, col = "Date",
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
   check_string(col)
-  check_vector(into, "", min_length = 3, max_length = 3, unique = TRUE)
+  check_vector(into, "", length = 3, unique = TRUE)
   check_flag(remove)
 
   data[[into[1]]] <- lubridate::year(data[[col]]) %>% as.integer()
@@ -52,7 +52,7 @@ ps_separate_datetime <- function(data, col = "DateTime",
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
   check_string(col)
-  check_vector(into, "", min_length = 6, max_length = 6, unique = TRUE)
+  check_vector(into, "", length = 6, unique = TRUE)
   check_flag(remove)
 
   data[[into[1]]] <- lubridate::year(data[[col]]) %>% as.integer()
