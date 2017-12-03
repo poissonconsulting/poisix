@@ -3,7 +3,7 @@
 #' Returns the day of the year as an integer between 1 and 366.
 #'
 #' @param x The object.
-#' @return An integer vector between 1 and 366.
+#' @return An integer vector with values between 1 and 366.
 #' @export
 #' @examples
 #' doy(as.Date("2002-01-11"))
@@ -14,6 +14,25 @@ doy <- function(x){
   y <- as.Date(paste(year(x) - 1, 12, 31, sep = "-"))
   x %<>% difftime(y, units = "days") %>% as.integer()
   x
+}
+
+#' Day of the Year as an integer to a Date
+#'
+#' @param x The integer vector
+#' @param year An integer vector of the year(s)
+#' @return A Date vector.
+#' @export
+#' @examples
+#' doy2date(1:2, 2000)
+#' doy2date(1:2, 2002:2001)
+doy2date <- function(x, year){
+  checkor(check_vector(x, c(1L, 366L, NA)), check_vector(x, c(1, 366, NA)))
+  checkor(check_vector(x, 1L), check_vector(1))
+  checkor(check_length(year, 1), check_length(year, length(x)))
+
+  if(!length(x)) return(as.Date(character(0)))
+
+  x + as.Date(paste0(year - 1, "-12-31"))
 }
 
 #' Get Day of the year as a Date
@@ -28,7 +47,8 @@ doy <- function(x){
 #' dayte(as.Date("2001-05-16"))
 #' dayte(as.Date("2004-02-29"))
 dayte <- function(x){
-  checkor(check_vector(x, c(Sys.Date(), NA)), check_vector(x, c(Sys.time(), NA)))
+  checkor(check_vector(x, c(Sys.Date(), NA)),
+          check_vector(x, c(Sys.time(), NA)))
   x %<>% date()
   year(x) <- 1972
   x

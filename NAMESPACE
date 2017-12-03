@@ -3,6 +3,7 @@
 export(dayte)
 export(dayte_time)
 export(doy)
+export(doy2date)
 export(ps_separate_date)
 export(ps_separate_datetime)
 export(ps_utc_offset)

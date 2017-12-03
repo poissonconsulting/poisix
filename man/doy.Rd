@@ -10,7 +10,7 @@ doy(x)
 \item{x}{The object.}
 }
 \value{
-An integer vector between 1 and 366.
+An integer vector with values between 1 and 366.
 }
 \description{
 Returns the day of the year as an integer between 1 and 366.
