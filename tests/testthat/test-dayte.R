@@ -23,6 +23,6 @@ test_that("dayte", {
 })
 
 test_that("dayte_time", {
-  expect_identical(dayte_time(as.POSIXct("2001-05-16 02:03:04")),
+  expect_equal(dayte_time(as.POSIXct("2001-05-16 02:03:04")),
                    as.POSIXct("1972-05-16 02:03:04"))
 })
