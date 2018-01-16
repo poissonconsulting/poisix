@@ -84,8 +84,9 @@ If the first month of the first season isn't January (1L), then
 the last season is considered to wrap into the following year.</p>
     
 
-    <pre class="usage"><span class='fu'>ps_add_season</span>(<span class='no'>x</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='st'>"Date"</span>, <span class='kw'>season</span> <span class='kw'>=</span> <span class='st'>"Season"</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='st'>"Year"</span>,
-  <span class='kw'>seasons</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>Spring</span> <span class='kw'>=</span> <span class='fl'>3L</span>, <span class='kw'>Summer</span> <span class='kw'>=</span> <span class='fl'>6L</span>, <span class='kw'>Autumn</span> <span class='kw'>=</span> <span class='fl'>9L</span>, <span class='kw'>Winter</span> <span class='kw'>=</span> <span class='fl'>12L</span>))</pre>
+    <pre class="usage"><span class='fu'>ps_add_season</span>(<span class='no'>x</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='st'>"Date"</span>, <span class='kw'>season</span> <span class='kw'>=</span> <span class='st'>"Season"</span>,
+  <span class='kw'>year_season</span> <span class='kw'>=</span> <span class='st'>"YearSeason"</span>, <span class='kw'>seasons</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>Spring</span> <span class='kw'>=</span> <span class='fl'>3L</span>, <span class='kw'>Summer</span> <span class='kw'>=</span> <span class='fl'>6L</span>, <span class='kw'>Autumn</span> <span class='kw'>=</span>
+  <span class='fl'>9L</span>, <span class='kw'>Winter</span> <span class='kw'>=</span> <span class='fl'>12L</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -103,12 +104,12 @@ the last season is considered to wrap into the following year.</p>
       <td><p>A string of the name of the column to save the seasons.</p></td>
     </tr>
     <tr>
-      <th>year</th>
+      <th>year_season</th>
       <td><p>A string of the name of the column to save the year of the season.</p></td>
     </tr>
     <tr>
       <th>seasons</th>
-      <td><p>A uniquely named list of the first month of each season.</p></td>
+      <td><p>A uniquely named integer vector of the first month of each season.</p></td>
     </tr>
     </table>
     
@@ -119,11 +120,11 @@ the last season is considered to wrap into the following year.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>Date</span> <span class='kw'>=</span> <span class='fu'>as.Date</span>(<span class='fu'>c</span>(<span class='st'>"2000-12-31"</span>, <span class='st'>"2001-01-01"</span>, <span class='st'>"2001-06-01"</span>, <span class='st'>"2001-12-31"</span>)))
-<span class='fu'>ps_add_season</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;         Date Season Year
-#&gt; 1 2000-12-31 Winter 2000
-#&gt; 2 2001-01-01 Winter 2000
-#&gt; 3 2001-06-01 Summer 2001
-#&gt; 4 2001-12-31 Winter 2001</div></pre>
+<span class='fu'>ps_add_season</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;         Date Season YearSeason
+#&gt; 1 2000-12-31 Winter       2000
+#&gt; 2 2001-01-01 Winter       2000
+#&gt; 3 2001-06-01 Summer       2001
+#&gt; 4 2001-12-31 Winter       2001</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

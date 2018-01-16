@@ -4,13 +4,13 @@
 \alias{ps_get_season}
 \title{Get Season}
 \usage{
-ps_get_season(x, seasons = list(Spring = 3L, Summer = 6L, Autumn = 9L, Winter
-  = 12L))
+ps_get_season(x, seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter =
+  12L))
 }
 \arguments{
 \item{x}{A Date or POSIXt vector}
 
-\item{seasons}{A uniquely named list of the first month of each season.}
+\item{seasons}{A uniquely named integer vector of the first month of each season.}
 }
 \value{
 An ordered factor of the seasons.
@@ -23,5 +23,5 @@ the last season is considered to wrap into the following year.
 \examples{
 ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")))
 ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")),
-season = list(Monsoon = 2L, `Dry Period` = 6L))
+season = c(Monsoon = 2L, `Dry Period` = 6L))
 }

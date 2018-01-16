@@ -4,8 +4,9 @@
 \alias{ps_add_season}
 \title{Add Season}
 \usage{
-ps_add_season(x, date = "Date", season = "Season", year = "Year",
-  seasons = list(Spring = 3L, Summer = 6L, Autumn = 9L, Winter = 12L))
+ps_add_season(x, date = "Date", season = "Season",
+  year_season = "YearSeason", seasons = c(Spring = 3L, Summer = 6L, Autumn =
+  9L, Winter = 12L))
 }
 \arguments{
 \item{x}{A data frame}
@@ -14,9 +15,9 @@ ps_add_season(x, date = "Date", season = "Season", year = "Year",
 
 \item{season}{A string of the name of the column to save the seasons.}
 
-\item{year}{A string of the name of the column to save the year of the season.}
+\item{year_season}{A string of the name of the column to save the year of the season.}
 
-\item{seasons}{A uniquely named list of the first month of each season.}
+\item{seasons}{A uniquely named integer vector of the first month of each season.}
 }
 \value{
 An original data frame with a season and year column.
