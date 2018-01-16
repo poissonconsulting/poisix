@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Separate DateTime — ps_separate_datetime • poisix</title>
+<title>Add Season — ps_add_season • poisix</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -75,48 +75,63 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Separate DateTime</h1>
+    <h1>Add Season</h1>
     </div>
 
     
-    <p>Separates DateTime into Year, Month and Day.</p>
+    <p>Returns a data frame with the season and the year.
+If the first month of the first season isn't January (1L), then
+the last season is considered to wrap into the following year.</p>
     
 
-    <pre class="usage"><span class='fu'>ps_separate_datetime</span>(<span class='no'>data</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>into</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Year"</span>, <span class='st'>"Month"</span>,
-  <span class='st'>"Day"</span>, <span class='st'>"Hour"</span>, <span class='st'>"Minute"</span>, <span class='st'>"Second"</span>), <span class='kw'>remove</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>ps_add_season</span>(<span class='no'>x</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='st'>"Date"</span>, <span class='kw'>season</span> <span class='kw'>=</span> <span class='st'>"Season"</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='st'>"Year"</span>,
+  <span class='kw'>seasons</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>Spring</span> <span class='kw'>=</span> <span class='fl'>3L</span>, <span class='kw'>Summer</span> <span class='kw'>=</span> <span class='fl'>6L</span>, <span class='kw'>Autumn</span> <span class='kw'>=</span> <span class='fl'>9L</span>, <span class='kw'>Winter</span> <span class='kw'>=</span> <span class='fl'>12L</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>A data frame.</p></td>
+      <th>x</th>
+      <td><p>A data frame</p></td>
     </tr>
     <tr>
-      <th>col</th>
-      <td><p>A column name or position.</p></td>
+      <th>date</th>
+      <td><p>A string of the name of the column with the Dates or POSIXt objects.</p></td>
     </tr>
     <tr>
-      <th>into</th>
-      <td><p>A character vector of length 6 specifying the names for the year, month, day, hour, minute and second components.</p></td>
+      <th>season</th>
+      <td><p>A string of the name of the column to save the seasons.</p></td>
     </tr>
     <tr>
-      <th>remove</th>
-      <td><p>A flag specifying whether to remove the original column.</p></td>
+      <th>year</th>
+      <td><p>A string of the name of the column to save the year of the season.</p></td>
+    </tr>
+    <tr>
+      <th>seasons</th>
+      <td><p>A uniquely named list of the first month of each season.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An original data frame with a season and year column.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>DateTime</span> <span class='kw'>=</span> <span class='fu'>Sys.time</span>())
-<span class='fu'>ps_separate_datetime</span>(<span class='no'>data</span>)</div><div class='output co'>#&gt;   Year Month Day Hour Minute Second
-#&gt; 1 2018     1  15   20     54      0</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>Date</span> <span class='kw'>=</span> <span class='fu'>as.Date</span>(<span class='fu'>c</span>(<span class='st'>"2000-12-31"</span>, <span class='st'>"2001-01-01"</span>, <span class='st'>"2001-06-01"</span>, <span class='st'>"2001-12-31"</span>)))
+<span class='fu'>ps_add_season</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;         Date Season Year
+#&gt; 1 2000-12-31 Winter 2000
+#&gt; 2 2001-01-01 Winter 2000
+#&gt; 3 2001-06-01 Summer 2001
+#&gt; 4 2001-12-31 Winter 2001</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
