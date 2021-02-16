@@ -1,5 +1,3 @@
-context("season")
-
 test_that("ps_get_season", {
 
   dates <- as.Date(c(

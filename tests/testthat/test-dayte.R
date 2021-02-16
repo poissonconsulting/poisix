@@ -1,5 +1,3 @@
-context("dayte")
-
 test_that("doy", {
   expect_identical(doy(as.Date("2002-01-11")), 11L)
   expect_identical(doy(as.Date("2001-05-16")), 136L)

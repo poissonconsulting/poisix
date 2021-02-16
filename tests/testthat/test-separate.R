@@ -1,5 +1,3 @@
-context("separate")
-
 test_that("ps_separate_date", {
 
   data <- data.frame(Date = as.Date("2001-02-03"), Other = 1)
