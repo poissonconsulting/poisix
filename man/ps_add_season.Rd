@@ -4,9 +4,13 @@
 \alias{ps_add_season}
 \title{Add Season}
 \usage{
-ps_add_season(x, date = "Date", season = "Season",
-  year_season = "YearSeason", seasons = c(Spring = 3L, Summer = 6L, Autumn =
-  9L, Winter = 12L))
+ps_add_season(
+  x,
+  date = "Date",
+  season = "Season",
+  year_season = "YearSeason",
+  seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter = 12L)
+)
 }
 \arguments{
 \item{x}{A data frame}

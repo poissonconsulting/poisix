@@ -4,8 +4,12 @@
 \alias{ps_separate_date}
 \title{Separate Date}
 \usage{
-ps_separate_date(data, col = "Date", into = c("Year", "Month", "Day"),
-  remove = TRUE)
+ps_separate_date(
+  data,
+  col = "Date",
+  into = c("Year", "Month", "Day"),
+  remove = TRUE
+)
 }
 \arguments{
 \item{data}{A data frame.}

@@ -4,8 +4,12 @@
 \alias{ps_separate_datetime}
 \title{Separate DateTime}
 \usage{
-ps_separate_datetime(data, col = "DateTime", into = c("Year", "Month",
-  "Day", "Hour", "Minute", "Second"), remove = TRUE)
+ps_separate_datetime(
+  data,
+  col = "DateTime",
+  into = c("Year", "Month", "Day", "Hour", "Minute", "Second"),
+  remove = TRUE
+)
 }
 \arguments{
 \item{data}{A data frame.}

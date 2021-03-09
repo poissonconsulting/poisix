@@ -4,8 +4,10 @@
 \alias{ps_get_season}
 \title{Get Season}
 \usage{
-ps_get_season(x, seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter =
-  12L))
+ps_get_season(
+  x,
+  seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter = 12L)
+)
 }
 \arguments{
 \item{x}{A Date or POSIXt vector}
