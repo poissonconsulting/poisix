@@ -18,11 +18,11 @@ ps_separate_date <- function(data, col = "Date",
 
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
-  check_string(col)
-  check_vector(into, "")
+  chk_string(col)
+  chk_vector(into, "")
   check_dim(into, values = 3)
   chk_unique(into)
-  check_flag(remove)
+  chk_flag(remove)
 
   data[[into[1]]] <- lubridate::year(data[[col]]) %>% as.integer()
   data[[into[2]]] <- lubridate::month(data[[col]]) %>% as.integer()
