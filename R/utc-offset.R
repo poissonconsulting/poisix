@@ -12,7 +12,8 @@
 #' times
 #' ps_utc_offset(times)
 ps_utc_offset <- function(x) {
-  check_vector(x, c(Sys.time(), NA), length = c(1, Inf))
+  check_values(x, c(Sys.time(), NA))
+  check_dim(x, values = TRUE)
   x %<>%
     difftime(force_tz(., "UTC"), ., units = "hours") %>%
     as.numeric()
