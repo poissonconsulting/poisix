@@ -16,9 +16,9 @@
 #' season = c(Monsoon = 2L, `Dry Period` = 6L))
 ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
                                             Autumn = 9L, Winter = 12L)) {
-  chkor(chk_vector(x, c(Sys.Date(), NA)),
-          chk_vector(x, c(Sys.time(), NA)))
-  chk_vector(seasons, c(1L, 12L))
+  chkor(check_values(x, c(Sys.Date(), NA)),
+          check_values(x, c(Sys.time(), NA)))
+  check_values(seasons, c(1L, 12L))
   check_dim(seasons, values = c(1, .Machine$integer.max))
   check_names(seasons)
   chk_unique(seasons)

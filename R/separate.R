@@ -19,7 +19,7 @@ ps_separate_date <- function(data, col = "Date",
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
   chk_string(col)
-  chk_vector(into, "")
+  chk_character(into)
   check_dim(into, values = 3)
   chk_unique(into)
   chk_flag(remove)
@@ -54,7 +54,7 @@ ps_separate_datetime <- function(data, col = "DateTime",
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
   chk_string(col)
-  chk_vector(into, "")
+  check_values(into, "")
   chk_unique(into)
   check_dim(into, values = 6)
   chk_flag(remove)
