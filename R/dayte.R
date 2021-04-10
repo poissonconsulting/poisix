@@ -9,7 +9,7 @@
 #' doy(as.Date("2002-01-11"))
 #' doy(as.Date("2001-05-16"))
 doy <- function(x){
-  checkor(check_vector(x, c(Sys.Date(), NA)), check_vector(x, c(Sys.time(), NA)))
+  chkor(check_values(x, c(Sys.Date(), NA)), check_values(x, c(Sys.time(), NA)))
   x %<>% date()
   y <- as.Date(paste(year(x) - 1, 12, 31, sep = "-"))
   x %<>% difftime(y, units = "days") %>% as.integer()
@@ -26,9 +26,10 @@ doy <- function(x){
 #' doy2date(1:2, 2000)
 #' doy2date(1:2, 2002:2001)
 doy2date <- function(x, year){
-  checkor(check_vector(x, c(1L, 366L, NA)), check_vector(x, c(1, 366, NA)))
-  checkor(check_vector(year, 1L), check_vector(year, 1))
-  checkor(check_length(year, 1), check_length(year, length(x)))
+  chk_whole_numeric(x)
+  chk_whole_numeric(year)
+  chk_range(x, c(1, 366))
+  chk_not_any_na(year)
 
   if(!length(x)) return(as.Date(character(0)))
 
@@ -47,8 +48,8 @@ doy2date <- function(x, year){
 #' dayte(as.Date("2001-05-16"))
 #' dayte(as.Date("2004-02-29"))
 dayte <- function(x){
-  checkor(check_vector(x, c(Sys.Date(), NA)),
-          check_vector(x, c(Sys.time(), NA)))
+  chkor(check_values(x, c(Sys.Date(), NA)),
+        check_values(x, c(Sys.time(), NA)))
   x %<>% date()
   year(x) <- 1972
   x
@@ -65,7 +66,7 @@ dayte <- function(x){
 #' @examples
 #' dayte_time(as.POSIXct("2001-05-16 02:03:04"))
 dayte_time <- function(x){
-  check_vector(x, c(Sys.time(), NA))
+  check_values(x, c(Sys.time(), NA))
   year(x) <- 1972
   x
 }

@@ -7,7 +7,7 @@ Description: Functions to manipulate Dates and POSIXct objects.
 Depends:
     R (>= 3.4.0)
 Imports:
-    checkr,
+    chk,
     lubridate,
     magrittr,
     tidyselect
@@ -18,4 +18,4 @@ RoxygenNote: 7.1.1
 Suggests: 
     covr,
     testthat
-Remotes: poissonconsulting/checkr
+Remotes: poissonconsulting/chk

@@ -16,11 +16,13 @@
 #' season = c(Monsoon = 2L, `Dry Period` = 6L))
 ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
                                             Autumn = 9L, Winter = 12L)) {
-  checkor(check_vector(x, c(Sys.Date(), NA)),
-          check_vector(x, c(Sys.time(), NA)))
-  check_vector(seasons, c(1L, 12L), length = c(1, .Machine$integer.max),
-               unique = TRUE, sorted = TRUE)
-  check_names(seasons, unique = TRUE)
+  chkor(check_values(x, c(Sys.Date(), NA)),
+          check_values(x, c(Sys.time(), NA)))
+  check_values(seasons, c(1L, 12L))
+  check_dim(seasons, values = c(1, .Machine$integer.max))
+  check_names(seasons)
+  chk_unique(seasons)
+  chk_sorted(seasons)
 
   is_length <- length(x)
   if(!is_length) x <- as.Date("2000-01-01")
@@ -67,10 +69,11 @@ ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
 ps_add_season <- function (x, date = "Date", season = "Season", year_season = "YearSeason",
                            seasons = c(Spring = 3L, Summer = 6L,
                                             Autumn = 9L, Winter = 12L)) {
-  check_string(date)
-  check_string(season)
-  check_string(year_season)
-  check_colnames(x, date)
+  chk_string(date)
+  chk_string(season)
+  chk_string(year_season)
+  check_names(x, date)
+
   if(length(unique(c(date, season, year_season))) != 3)
     error("date, season and year_season must be unique")
 
