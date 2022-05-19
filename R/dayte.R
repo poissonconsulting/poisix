@@ -10,8 +10,8 @@
 #' doy(as.Date("2001-05-16"))
 doy <- function(x){
   chkor(check_values(x, c(Sys.Date(), NA)), check_values(x, c(Sys.time(), NA)))
-  x %<>% date()
-  y <- as.Date(paste(year(x) - 1, 12, 31, sep = "-"))
+  x %<>% dtt_date()
+  y <- as.Date(paste(dtt_year(x) - 1, 12, 31, sep = "-"))
   x %<>% difftime(y, units = "days") %>% as.integer()
   x
 }
@@ -50,8 +50,8 @@ doy2date <- function(x, year){
 dayte <- function(x){
   chkor(check_values(x, c(Sys.Date(), NA)),
         check_values(x, c(Sys.time(), NA)))
-  x %<>% date()
-  year(x) <- 1972
+  x %<>% dtt_date()
+  dtt_year(x) <- 1972
   x
 }
 
@@ -67,6 +67,6 @@ dayte <- function(x){
 #' dayte_time(as.POSIXct("2001-05-16 02:03:04"))
 dayte_time <- function(x){
   check_values(x, c(Sys.time(), NA))
-  year(x) <- 1972
+  dtt_year(x) <- 1972
   x
 }

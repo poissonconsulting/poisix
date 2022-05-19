@@ -35,13 +35,13 @@ ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
   breaks <- paste("1972", seasons, "01", sep = "-") %>%
     c("1972-12-31") %>%
     as.Date() %>%
-    dayte()
+    dtt_dayte()
 
   breaks[length(breaks)] %<>% magrittr::add(lubridate::days(1L))
 
   x %<>%
-    lubridate::date() %>%
-    dayte() %>%
+    dttr2::dtt_date() %>%
+    dtt_dayte() %>%
     cut(breaks = breaks, ordered_result = TRUE)
 
   levels(x) <- names(seasons)
@@ -78,10 +78,10 @@ ps_add_season <- function (x, date = "Date", season = "Season", year_season = "Y
     error("date, season and year_season must be unique")
 
   x[[season]] <- ps_get_season(x[[date]], seasons = seasons)
-  x[[year_season]] <- lubridate::year(x[[date]]) %>% as.integer()
+  x[[year_season]] <- dttr2::dtt_year(x[[date]]) %>% as.integer()
 
   if(seasons[[1]] != 1L) { # last season wraps
-    x[[year_season]][lubridate::month(x[[date]]) < seasons[[1]]] %<>%
+    x[[year_season]][dttr2::dtt_month(x[[date]]) < seasons[[1]]] %<>%
       magrittr::subtract(1L)
   }
   x

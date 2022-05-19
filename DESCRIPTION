@@ -8,14 +8,16 @@ Depends:
     R (>= 3.4.0)
 Imports:
     chk,
+    dttr2,
     lubridate,
     magrittr,
     tidyselect
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0
 Suggests: 
     covr,
     testthat
-Remotes: poissonconsulting/chk
+Remotes: poissonconsulting/chk,
+         poissonconsulting/dttr2
