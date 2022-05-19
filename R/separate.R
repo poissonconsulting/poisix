@@ -24,9 +24,9 @@ ps_separate_date <- function(data, col = "Date",
   chk_unique(into)
   chk_flag(remove)
 
-  data[[into[1]]] <- lubridate::year(data[[col]]) %>% as.integer()
-  data[[into[2]]] <- lubridate::month(data[[col]]) %>% as.integer()
-  data[[into[3]]] <- lubridate::day(data[[col]]) %>% as.integer()
+  data[[into[1]]] <- dttr2::dtt_year(data[[col]]) %>% as.integer()
+  data[[into[2]]] <- dttr2::dtt_month(data[[col]]) %>% as.integer()
+  data[[into[3]]] <- dttr2::dtt_day(data[[col]]) %>% as.integer()
 
   if(remove) data[[col]] <- NULL
 
@@ -59,12 +59,12 @@ ps_separate_datetime <- function(data, col = "DateTime",
   check_dim(into, values = 6)
   chk_flag(remove)
 
-  data[[into[1]]] <- lubridate::year(data[[col]]) %>% as.integer()
-  data[[into[2]]] <- lubridate::month(data[[col]]) %>% as.integer()
-  data[[into[3]]] <- lubridate::day(data[[col]]) %>% as.integer()
-  data[[into[4]]] <- lubridate::hour(data[[col]]) %>% as.integer()
-  data[[into[5]]] <- lubridate::minute(data[[col]]) %>% as.integer()
-  data[[into[6]]] <- lubridate::second(data[[col]]) %>% as.integer()
+  data[[into[1]]] <- dttr2::dtt_year(data[[col]]) %>% as.integer()
+  data[[into[2]]] <- dttr2::dtt_month(data[[col]]) %>% as.integer()
+  data[[into[3]]] <- dttr2::dtt_day(data[[col]]) %>% as.integer()
+  data[[into[4]]] <- dttr2::dtt_hour(data[[col]]) %>% as.integer()
+  data[[into[5]]] <- dttr2::dtt_minute(data[[col]]) %>% as.integer()
+  data[[into[6]]] <- dttr2::dtt_second(data[[col]]) %>% as.integer()
 
   if(remove) data[[col]] <- NULL
 
