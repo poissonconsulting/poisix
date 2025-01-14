@@ -21,3 +21,4 @@ Suggests:
     testthat
 Remotes: poissonconsulting/chk,
          poissonconsulting/dttr2
+Config/Needs/website: poissonconsulting/poissontemplate
