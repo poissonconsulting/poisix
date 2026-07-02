@@ -1,6 +1,8 @@
-pandoc: 2.7.3
-pkgdown: 2.0.3.9000
-pkgdown_sha: 9dee019f9983b86585a77a3b1a1459b9f0390fe6
+pandoc: 3.8.3
+pkgdown: 2.2.0
+pkgdown_sha: ~
 articles: {}
-last_built: 2022-05-19T02:06Z
-
+last_built: 2026-07-02T00:14Z
+urls:
+  reference: https://poissonconsulting.github.io/poisix/reference
+  article: https://poissonconsulting.github.io/poisix/articles

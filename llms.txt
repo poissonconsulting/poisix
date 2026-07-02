@@ -1,0 +1,50 @@
+# poisix
+
+A R package of functions to manipulate Date and POSIXct objects.
+
+## Installation
+
+``` r
+
+# install.packages("devtools")
+devtools::install_github("poissonconsulting/poisix")
+```
+
+## Contribution
+
+Please report any
+[issues](https://github.com/poissonconsulting/poisix/issues).
+
+[Pull requests](https://github.com/poissonconsulting/poisix/pulls) are
+always welcome.
+
+## Code of Conduct
+
+Please note that the poisix project is released with a [Contributor Code
+of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
+# Package index
+
+## All functions
+
+- [`dayte()`](https://poissonconsulting.github.io/poisix/reference/dayte.md)
+  : Get Day of the year as a Date
+- [`dayte_time()`](https://poissonconsulting.github.io/poisix/reference/dayte_time.md)
+  : Get Day and time of the year as a POSIX
+- [`doy()`](https://poissonconsulting.github.io/poisix/reference/doy.md)
+  : Get Day of the Year
+- [`doy2date()`](https://poissonconsulting.github.io/poisix/reference/doy2date.md)
+  : Day of the Year as an integer to a Date
+- [`ps_add_season()`](https://poissonconsulting.github.io/poisix/reference/ps_add_season.md)
+  : Add Season
+- [`ps_get_season()`](https://poissonconsulting.github.io/poisix/reference/ps_get_season.md)
+  : Get Season
+- [`ps_separate_date()`](https://poissonconsulting.github.io/poisix/reference/ps_separate_date.md)
+  : Separate Date
+- [`ps_separate_datetime()`](https://poissonconsulting.github.io/poisix/reference/ps_separate_datetime.md)
+  : Separate DateTime
+- [`ps_utc_offset()`](https://poissonconsulting.github.io/poisix/reference/ps_utc_offset.md)
+  : UTC Offset
+
