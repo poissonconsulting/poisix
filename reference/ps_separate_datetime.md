@@ -38,5 +38,5 @@ ps_separate_datetime(
 data <- data.frame(DateTime = Sys.time())
 ps_separate_datetime(data)
 #>   Year Month Day Hour Minute Second
-#> 1 2026     7   2    0     14     52
+#> 1 2026     7   3   23     49     11
 ```
