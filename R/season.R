@@ -14,10 +14,11 @@
 #' ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")))
 #' ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")),
 #' season = c(Monsoon = 2L, `Dry Period` = 6L))
-ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
-                                            Autumn = 9L, Winter = 12L)) {
-  chkor(check_values(x, c(Sys.Date(), NA)),
-          check_values(x, c(Sys.time(), NA)))
+ps_get_season <- function(
+  x,
+  seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter = 12L)
+) {
+  chkor(check_values(x, c(Sys.Date(), NA)), check_values(x, c(Sys.time(), NA)))
   check_values(seasons, c(1L, 12L))
   check_dim(seasons, values = c(1, .Machine$integer.max))
   check_names(seasons)
@@ -25,9 +26,12 @@ ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
   chk_sorted(seasons)
 
   is_length <- length(x)
-  if(!is_length) x <- as.Date("2000-01-01")
+  if (!is_length) {
+    x <- as.Date("2000-01-01")
+  }
 
-  if(seasons[1] != 1L) { # last season wraps
+  if (seasons[1] != 1L) {
+    # last season wraps
     start <- list(1L) %>% setNames(names(seasons[length(seasons)]))
     seasons %<>% c(start, .)
   }
@@ -45,7 +49,9 @@ ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
     cut(breaks = breaks, ordered_result = TRUE)
 
   levels(x) <- names(seasons)
-  if(!is_length) x <- x[-1]
+  if (!is_length) {
+    x <- x[-1]
+  }
   x
 }
 
@@ -66,21 +72,27 @@ ps_get_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
 #' @examples
 #' x <- data.frame(Date = as.Date(c("2000-12-31", "2001-01-01", "2001-06-01", "2001-12-31")))
 #' ps_add_season(x)
-ps_add_season <- function (x, date = "Date", season = "Season", year_season = "YearSeason",
-                           seasons = c(Spring = 3L, Summer = 6L,
-                                            Autumn = 9L, Winter = 12L)) {
+ps_add_season <- function(
+  x,
+  date = "Date",
+  season = "Season",
+  year_season = "YearSeason",
+  seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter = 12L)
+) {
   chk_string(date)
   chk_string(season)
   chk_string(year_season)
   check_names(x, date)
 
-  if(length(unique(c(date, season, year_season))) != 3)
+  if (length(unique(c(date, season, year_season))) != 3) {
     error("date, season and year_season must be unique")
+  }
 
   x[[season]] <- ps_get_season(x[[date]], seasons = seasons)
   x[[year_season]] <- dttr2::dtt_year(x[[date]]) %>% as.integer()
 
-  if(seasons[[1]] != 1L) { # last season wraps
+  if (seasons[[1]] != 1L) {
+    # last season wraps
     x[[year_season]][dttr2::dtt_month(x[[date]]) < seasons[[1]]] %<>%
       magrittr::subtract(1L)
   }
