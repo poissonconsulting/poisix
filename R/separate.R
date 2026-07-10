@@ -10,11 +10,15 @@
 #' @examples
 #' data <- data.frame(Date = Sys.Date())
 #' ps_separate_date(data)
-ps_separate_date <- function(data, col = "Date",
-                             into = c("Year", "Month", "Day"),
-                             remove = TRUE) {
-  if(!is.data.frame(data))
+ps_separate_date <- function(
+  data,
+  col = "Date",
+  into = c("Year", "Month", "Day"),
+  remove = TRUE
+) {
+  if (!is.data.frame(data)) {
     error("data must be a data frame")
+  }
 
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
@@ -28,7 +32,9 @@ ps_separate_date <- function(data, col = "Date",
   data[[into[2]]] <- dttr2::dtt_month(data[[col]]) %>% as.integer()
   data[[into[3]]] <- dttr2::dtt_day(data[[col]]) %>% as.integer()
 
-  if(remove) data[[col]] <- NULL
+  if (remove) {
+    data[[col]] <- NULL
+  }
 
   data
 }
@@ -45,11 +51,15 @@ ps_separate_date <- function(data, col = "Date",
 #' @examples
 #' data <- data.frame(DateTime = Sys.time())
 #' ps_separate_datetime(data)
-ps_separate_datetime <- function(data, col = "DateTime",
-                                 into = c("Year", "Month", "Day", "Hour", "Minute", "Second"),
-                                 remove = TRUE) {
-  if(!is.data.frame(data))
+ps_separate_datetime <- function(
+  data,
+  col = "DateTime",
+  into = c("Year", "Month", "Day", "Hour", "Minute", "Second"),
+  remove = TRUE
+) {
+  if (!is.data.frame(data)) {
     error("data must be a data frame")
+  }
 
   col %<>% tidyselect::vars_pull(colnames(data), .)
 
@@ -66,7 +76,9 @@ ps_separate_datetime <- function(data, col = "DateTime",
   data[[into[5]]] <- dttr2::dtt_minute(data[[col]]) %>% as.integer()
   data[[into[6]]] <- dttr2::dtt_second(data[[col]]) %>% as.integer()
 
-  if(remove) data[[col]] <- NULL
+  if (remove) {
+    data[[col]] <- NULL
+  }
 
   data
 }
