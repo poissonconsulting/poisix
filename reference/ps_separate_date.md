@@ -38,5 +38,5 @@ ps_separate_date(
 data <- data.frame(Date = Sys.Date())
 ps_separate_date(data)
 #>   Year Month Day
-#> 1 2026     7  10
+#> 1 2026     7  14
 ```
