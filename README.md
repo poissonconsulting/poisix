@@ -1,10 +1,10 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <!-- badges: start -->
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/poisix)](https://cran.r-project.org/package=poisix)
 [![R-CMD-check](https://github.com/poissonconsulting/poisix/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/poisix/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/poisix/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/poisix?branch=master)
+coverage](https://codecov.io/gh/poissonconsulting/poisix/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/poisix)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit/)
 [![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)](https://github.com/joethorley/stability-badges#experimental)
@@ -16,8 +16,10 @@ A R package of functions to manipulate Date and POSIXct objects.
 
 ## Installation
 
-    # install.packages("devtools")
-    devtools::install_github("poissonconsulting/poisix")
+``` r
+# install.packages("devtools")
+devtools::install_github("poissonconsulting/poisix")
+```
 
 ## Contribution
 
