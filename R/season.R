@@ -13,12 +13,13 @@
 #' @examples
 #' ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")))
 #' ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")),
-#' season = c(Monsoon = 2L, `Dry Period` = 6L))
+#'   season = c(Monsoon = 2L, `Dry Period` = 6L)
+#' )
 ps_get_season <- function(
   x,
   seasons = c(Spring = 3L, Summer = 6L, Autumn = 9L, Winter = 12L)
 ) {
-  chkor(check_values(x, c(Sys.Date(), NA)), check_values(x, c(Sys.time(), NA)))
+  chkor_vld(vld_is(x, "Date"), vld_is(x, "POSIXct"))
   check_values(seasons, c(1L, 12L))
   check_dim(seasons, values = c(1, .Machine$integer.max))
   check_names(seasons)
@@ -41,7 +42,7 @@ ps_get_season <- function(
     as.Date() %>%
     dtt_dayte()
 
-  breaks[length(breaks)] %<>% magrittr::add(lubridate::days(1L))
+  breaks[length(breaks)] %<>% dttr2::dtt_add_days(1L)
 
   x %<>%
     dttr2::dtt_date() %>%
