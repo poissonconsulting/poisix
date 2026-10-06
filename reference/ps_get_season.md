@@ -34,7 +34,8 @@ ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01"))
 #> [1] Winter Winter Autumn Winter
 #> Levels: Winter < Spring < Summer < Autumn
 ps_get_season(as.Date(c("2001-01-01", "2001-02-28", "2012-09-01", "2012-12-01")),
-season = c(Monsoon = 2L, `Dry Period` = 6L))
+  season = c(Monsoon = 2L, `Dry Period` = 6L)
+)
 #> [1] Dry Period Monsoon    Dry Period Dry Period
 #> Levels: Dry Period < Monsoon
 ```
