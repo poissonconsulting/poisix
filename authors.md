@@ -9,12 +9,12 @@
 ## Citation
 
 Thorley J (2026). *poisix: Manipulate Datetimes*. R package version
-0.0.0.9008, <https://poissonconsulting.github.io/poisix>.
+0.0.0.9009, <https://poissonconsulting.github.io/poisix>.
 
     @Manual{,
       title = {poisix: Manipulate Datetimes},
       author = {Joe Thorley},
       year = {2026},
-      note = {R package version 0.0.0.9008},
+      note = {R package version 0.0.0.9009},
       url = {https://poissonconsulting.github.io/poisix},
     }

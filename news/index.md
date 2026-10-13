@@ -1,5 +1,9 @@
 # Changelog
 
+## poisix 0.0.0.9009 (2026-10-13)
+
+- Same as previous version.
+
 ## poisix 0.0.0.9008 (2026-10-07)
 
 - Replace lubridate with dttr2 and `chkor` (#12).
